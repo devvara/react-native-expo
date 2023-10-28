@@ -7,7 +7,7 @@ type BoxProps = {
 
 const ColoredBox: React.FC<BoxProps> = ({ color, text }) => {
   return (
-    <View style={[styles.box, { backgroundColor : color }]}>
+    <View accessibilityRole="button" style={[styles.box, { backgroundColor : color }]}>
       <Text style={styles.boxText} >{text}</Text>
     </View>
   )

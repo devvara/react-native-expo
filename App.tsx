@@ -1,25 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import ColoredBox from './src/components/native/View';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { RootStackParamList } from "./App.types";
+import HomeScreen from "./src/screens/HomeScreen";
+import ViewScreen from "./src/screens/ViewScreen";
+import { FC } from "react";
 
-export default function App() {
+const Stack = createStackNavigator<RootStackParamList>();
+
+const App: FC = () => {
   return (
-    <View style={styles.container}>
-      <Text>React Native</Text>
-      <ColoredBox color="red" text="Red" />
-      <ColoredBox color="blue" text="Blue" />
-      <ColoredBox color="yellow" text="Yellow" />
-      <ColoredBox color="pink" text="Pink" />
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="View" component={ViewScreen} />
+      </Stack.Navigator>
       <StatusBar style="auto" />
-    </View>
-  );
+    </NavigationContainer>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
+
+export default App
