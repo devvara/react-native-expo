@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { RootStackParamList } from "./App.types";
 import HomeScreen from "./src/screens/HomeScreen";
 import ViewScreen from "./src/screens/ViewScreen";
+import ButtonScreen from "./src/screens/ButtonScreen";
 import { FC } from "react";
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -15,6 +16,7 @@ const App: FC = () => {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="View" component={ViewScreen} />
+        <Stack.Screen name="Button" component={ButtonScreen} />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
